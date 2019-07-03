@@ -1,0 +1,246 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div><button type="button" class="btn btn-danger" (click)="isCollapsed = !isCollapsed"
+                        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Adicionar Empresa
+                    </button>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-12" id="collapseBasic" [collapse]="isCollapsed">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Adicionar Empresa</h4>
+                        <p class="card-category">Adicione informações gerais</p>
+                    </div>
+                    <div class="card-body">
+                        <form #formulario="ngForm" id="formulario" method="POST"
+                            >
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="id" name="id" matInput placeholder="ID" [(ngModel)]="empresa.id"
+                                        disabled>
+                                    </mat-form-field>
+                                </div>
+                            </div>                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="cnpj" name="cnpj" matInput placeholder="CNPJ" [(ngModel)]="empresa.cnpj">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="razao_social" name="razao_social" matInput placeholder="Razão Social"
+                                            [(ngModel)]="empresa.razao_social">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="nome_fantasia" name="nome_fantasia" matInput
+                                            placeholder="Nome Fantasia" [(ngModel)]="empresa.nome_fantasia">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="cep" name="cep" matInput placeholder="CEP" [(ngModel)]="empresa.cep">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="logradouro" name="logradouro" matInput placeholder="Logradouro"
+                                            [(ngModel)]="empresa.logradouro">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="numero" name="numero" matInput placeholder="Número"
+                                            [(ngModel)]="empresa.numero">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="complemento" name="complemento" matInput placeholder="Complemento"
+                                            [(ngModel)]="empresa.complemento">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="bairro" name="bairro" matInput placeholder="Bairro"
+                                            [(ngModel)]="empresa.bairro">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="municipio" name="municipio" matInput placeholder="Município"
+                                            [(ngModel)]="empresa.municipio">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="estado" name="estado" matInput placeholder="Estado"
+                                            [(ngModel)]="empresa.estado">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="inscricao_estadual" name="inscricao_estadual" matInput
+                                            placeholder="Inscrição Estadual" [(ngModel)]="empresa.inscricao_estadual">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="inscricao_municipal" name="inscricao_municipal" matInput
+                                            placeholder="Inscrição Municipal" [(ngModel)]="empresa.inscricao_municipal">
+                                    </mat-form-field>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="telefone" name="telefone" matInput placeholder="Telefone"
+                                            [(ngModel)]="empresa.telefone">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="celular" name="celular" matInput placeholder="Celular"
+                                            [(ngModel)]="empresa.celular">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="site" name="site" matInput placeholder="Site" [(ngModel)]="empresa.site">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="email" name="email" matInput placeholder="Email" type="email"
+                                            [(ngModel)]="empresa.email">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <button mat-raised-button type="submit" (click)="atualizar ? atualizarEmpresa(formulario) : criarEmpresa(formulario)"class="btn btn-danger pull-right" >Adicionar</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Empresas Cadastradas</h4>
+                        <p class="card-category"> Empresas cadastradas no sistema</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th><th>
+                                        CNPJ
+                                    </th>
+                                    <th>
+                                        Razão Social
+                                    </th>
+                                    <th>
+                                        Nome Fantasia
+                                    </th>
+                                    <th>
+                                        CEP
+                                    </th>
+                                    <th>
+                                        Logradouro
+                                    </th>
+                                    <th>
+                                        Número
+                                    </th>
+                                    <th>
+                                        Complemento
+                                    </th>
+                                    <th>
+                                        Bairro
+                                    </th>
+                                    <th>
+                                        Estado
+                                    </th>
+                                    <th>
+                                        Inscrição Estadual
+                                    </th>
+                                    <th>
+                                        Inscrição Municipal
+                                    </th>
+                                    <th>
+                                        Ie Substituto                                    
+                                    </th>
+                                    <th>
+                                        Telefone
+                                    </th>
+                                    <th>
+                                        Celular
+                                    </th>
+                                    <th>Site</th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Ações
+                                    </th>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let empresa of empresas">
+                                        <td>{{empresa.id}}</td>
+                                        <td>{{empresa.cnpj}}</td>
+                                        <td>{{empresa.razao_social}}</td>
+                                        <td>{{empresa.nome_fantasia}}</td>
+                                        <td>{{empresa.cep}}</td>
+                                        <td>{{empresa.logradouro}}</td>
+                                        <td>{{empresa.numero}}</td>
+                                        <td>{{empresa.complemento}}</td>
+                                        <td>{{empresa.bairro}}</td>
+                                        <td>{{empresa.municipio}}</td>
+                                        <td>{{empresa.estado}}</td>
+                                        <td>{{empresa.inscricao_estadual}}</td>
+                                        <td>{{empresa.inscricao_municipal}}</td>
+                                        <td>{{empresa.telefone}}</td>
+                                        <td>{{empresa.celular}}</td>
+                                        <td>{{empresa.site}}</td>
+                                        <td>{{empresa.email}}</td>
+
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" matTooltip="Editar"
+                                                [matTooltipPosition]="'above'"
+                                                [routerLink]="['/editempresa', empresa.id]"
+                                                class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button mat-raised-button type="button" (click)="deletarEmpresa(empresa)" matTooltip="Remover"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,217 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div><button type="button" class="btn btn-danger" (click)="isCollapsed = !isCollapsed"
+                        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Adicionar Contato
+                    </button>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-12" id="collapseBasic" [collapse]="isCollapsed">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Adicionar Contato</h4>
+                        <p class="card-category">Adicione informações gerais</p>
+                    </div>
+                    <div class="card-body">
+                        <form #formulario="ngForm" id="formulario" method="POST"  
+                        (ngSubmit)="atualizar ? atualizaContato(formulario) : criarContato(formulario)" >
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                    <input id="id" name="id" matInput placeholder="ID" [(ngModel)]="contato.id"
+                                    disabled>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="razao_social" name="razao_social" matInput placeholder="Razão Social" [(ngModel)]="contato.razao_social">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="nome_fantasia" name="nome_fantasia" matInput placeholder="Nome Fantasia" [(ngModel)]="contato.nome_fantasia">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="cep" name="cep" matInput placeholder="CEP" [(ngModel)]="contato.cep">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="logradouro" name="logradouro" matInput placeholder="Logradouro" [(ngModel)]="contato.logradouro">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="numero" name="numero" matInput placeholder="Número" [(ngModel)]="contato.numero">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="complemento" name="complemento" matInput placeholder="Complemento" [(ngModel)]="contato.complemento">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="bairro" name="bairro" matInput placeholder="Bairro" [(ngModel)]="contato.bairro">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="municipio" name="municipio" matInput placeholder="Município" [(ngModel)]="contato.municipio">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="estado" name="estado" matInput placeholder="Estado" [(ngModel)]="contato.estado">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="telefone" name="telefone" matInput placeholder="Telefone" [(ngModel)]="contato.telefone">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="celular" name="celular" matInput placeholder="Celular" [(ngModel)]="contato.celular">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="email" name="email" matInput placeholder="Email address" type="email" [(ngModel)]="contato.email">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Adicionar</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Contatos Cadastrados</h4>
+                        <p class="card-category"> Contatos cadastrados no sistema</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Razão Social
+                                    </th>
+                                    <th>
+                                        Nome Fantasia
+                                    </th>
+                                    <th>
+                                        Logradouro
+                                    </th>
+                                    <th>
+                                        Número
+                                    </th>
+                                    <th>
+                                        Complemento
+                                    </th>
+                                    <th>
+                                        Bairro
+                                    </th>
+                                    <th>
+                                        Municipio
+                                    </th>
+                                    <th>
+                                        Estado
+                                    </th>
+                                    <th>
+                                        Telefone
+                                    </th>
+                                    <th>
+                                        Celular
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Ações
+                                    </th>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let contato of contatos">
+                                        <td>
+                                            {{contato.id}}
+                                        </td> 
+                                        <td>
+                                            {{contato.razao_social}}
+                                        </td>
+                                        <td>
+                                            {{contato.nome_fantasia}}
+                                        </td>
+                                        <td>
+                                            {{contato.cep}}
+                                        </td>
+                                        <td>
+                                            {{contato.logradouro}}
+                                        </td>
+                                        <td>
+                                            {{contato.numero}}
+                                        </td>
+                                        <td>
+                                            {{contato.complemento}}
+                                        </td>
+                                        <td>
+                                            {{contato.bairro}}
+                                        </td>
+                                        <td>
+                                            {{contato.municipio}}
+                                        </td>
+                                        <td>
+                                            {{contato.estado}}
+                                        </td>
+                                        <td>
+                                            {{contato.telefone}}
+                                        </td>
+                                        <td>
+                                            {{contato.celular}}
+                                        </td>
+                                        <td>
+                                            {{contato.email}}
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" matTooltip="Editar"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button mat-raised-button type="button" (click)="deletarContato(contato)" matTooltip="Remover"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,249 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div><button type="button" class="btn btn-danger" (click)="isCollapsed = !isCollapsed"
+                        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Adicionar Venda
+                    </button>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-12" id="collapseBasic" [collapse]="isCollapsed">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Adicionar Venda</h4>
+                        <p class="card-category">Adicione informações gerais</p>
+                    </div>
+                    <div class="card-body">
+                        <form #formulario="ngForm" id="formulario" method="POST"  
+                        >
+                        <div class="row">
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                    <input id="id" name="id" matInput placeholder="Código" [(ngModel)]="venda.id"
+                                    disabled>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="data" name="data" matInput placeholder="Data" [(ngModel)]="venda.data">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="cliente" name="cliente" matInput placeholder="Cliente" [(ngModel)]="venda.cliente">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="vendedor" name="vendedor" matInput placeholder="Vendedor" [(ngModel)]="venda.vendedor">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="cod_interno" name="cod_interno" matInput placeholder="Cód. Interno" [(ngModel)]="venda.cod_interno">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="item" name="item" matInput placeholder="Item" [(ngModel)]="venda.item">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="cod_barras" name="cod_barras" matInput placeholder="Cód. Barras" [(ngModel)]="venda.cod_barras">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="unid" name="unid" matInput placeholder="Unid." [(ngModel)]="venda.unid">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="quantidade" name="quantidade" matInput placeholder="Quantidade" [(ngModel)]="venda.quantidade">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="vr_unitario" name="vr_unitario" matInput placeholder="Vr. Unitário" [(ngModel)]="venda.vr_unitario">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="sub_total" name="sub_total" matInput placeholder="Sub-Total R$" [(ngModel)]="venda.sub_total">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="desconto_porcento" name="desconto_porcento" matInput placeholder="Desconto %." [(ngModel)]="venda.desconto_porcento">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="desconto_reais" name="desconto_reais" matInput placeholder="Desconto R$" [(ngModel)]="venda.desconto_reais">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="total" name="total" matInput placeholder="Total R$" [(ngModel)]="venda.total">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                    <input id="observacao" name="observacao" matInput placeholder="Observação" [(ngModel)]="venda.observacao">
+                                </mat-form-field>
+                            </div>
+
+                            <button mat-raised-button type="submit"(click)="atualizar ? atualizarVenda(formulario) : criarVenda(formulario)" class="btn btn-danger pull-right">Adicionar</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Vendas Cadastradas</h4>
+                        <p class="card-category"> Vendas cadastradas no sistema</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    
+                                    <th>
+                                        Data
+                                    </th>
+                                    <th>
+                                        Cliente
+                                    </th>
+                                    <th>
+                                        Vendedor
+                                    </th>
+                                    
+                                    <th>
+                                        Cód. Interno
+                                    </th>
+                                    <th>
+                                        Item
+                                    </th>
+                                    <th>
+                                        Cód. Barras
+                                    </th>
+                                    <th>
+                                        NCM
+                                    </th>
+                                    <th>
+                                        Unidade
+                                    </th>
+                                    <th>
+                                        Quantidade
+                                    </th>
+                                    <th>
+                                        Valor Unitário
+                                    </th>
+
+                                    <th>
+                                        Sub Total
+                                    </th>
+                                    <th>
+                                        Desconto %
+                                    </th>
+                                    <th>
+                                        Desconto R$
+                                    </th>
+                                    <th>
+                                        Total
+                                    </th>
+                                    <th>
+                                        Observações
+                                    </th>
+                                    
+                                    <th>
+                                        Ações
+                                    </th>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let venda of vendas">
+                                        <td>
+                                            {{venda.id}}
+                                        </td><td>
+                                            {{venda.data}}
+                                        </td>
+                                        <td>
+                                            {{venda.cliente}}
+                                        </td>
+                                        <td>
+                                            {{venda.vendedor}}
+                                        </td>
+                                        <td>
+                                            {{venda.cod_interno}}
+                                        </td>
+                                        <td>
+                                            {{venda.item}}
+                                        </td>
+                                        <td>
+                                            {{venda.cod_barras}}
+                                        </td>
+                                        <td>
+                                            {{venda.unid}}
+                                        </td>
+                                        <td>
+                                            {{venda.quantidade}}
+                                        </td>
+                                        <td>
+                                            {{venda.vr_unitario}}                                        
+                                        </td>
+                                        <td>
+                                            {{venda.sub_total}}
+                                        </td>
+                                        <td>
+                                            {{venda.desconto_porcento}}                                        
+                                        </td>
+                                        <td>
+                                            {{venda.desconto_reais}}
+                                        </td>
+                                        <td>
+                                            {{venda.total}}
+                                        </td>
+                                        <td>
+                                            {{venda.observacao}}
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" matTooltip="Editar"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-primary btn-link btn-sm btn-just-icon"
+                                                [routerLink]="['/edit', venda.id]"
+                                                (click)="atualizarVenda(venda.id)"
+                                                >
+                                                
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button mat-raised-button type="button" (click)="deletarVenda(venda)" matTooltip="Remover"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div><button type="button" class="btn btn-danger" (click)="isCollapsed = !isCollapsed"
+                        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Adicionar Tarefa
+                    </button>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-12" id="collapseBasic" [collapse]="isCollapsed">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Adicionar Tarefa</h4>
+                        <p class="card-category">Adicione informações gerais</p>
+                    </div>
+                    <div class="card-body">
+                        <form #formulario="ngForm" id="formulario" method="POST"  
+                         >
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="id" name="id" matInput placeholder="ID" [(ngModel)]="tarefa.id"
+                                        disabled>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input id="descricao" name="descricao" matInput placeholder="Descrição" [(ngModel)]="tarefa.descricao">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" (click)="atualizar ? atualizarTarefa(formulario) : criarTarefa(formulario)" class="btn btn-danger pull-right">Adicionar</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Tarefas Cadastradas</h4>
+                        <p class="card-category"> Tarefas cadastradas no sistema</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Descrição
+                                    </th>
+                                    <th>
+                                        Ações
+                                    </th>
+
+                                </thead>
+                                <tbody>                                    
+                                    <tr *ngFor="let tarefa of tarefas">
+                                        <td>
+                                            {{tarefa.id}}
+                                        </td>
+                                        <td>
+                                            {{tarefa.descricao}}
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" (click)="atualizarTarefa(tarefa.id)" matTooltip="Editar"
+                                                [matTooltipPosition]="'above'"
+                                                [routerLink]="['/edittarefas', tarefa.id]"
+                                                class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button mat-raised-button type="button" (click)="deletarTarefa(tarefa)" matTooltip="Remover"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
