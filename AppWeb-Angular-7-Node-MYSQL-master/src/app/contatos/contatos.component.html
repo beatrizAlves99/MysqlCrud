@@ -16,7 +16,7 @@
                     </div>
                     <div class="card-body">
                         <form #formulario="ngForm" id="formulario" method="POST"  
-                        (ngSubmit)="atualizar ? atualizaContato(formulario) : criarContato(formulario)" >
+                         >
                         <div class="row">
 
                             <div class="col-md-2">
@@ -95,7 +95,7 @@
                                     </mat-form-field>
                                 </div>
                             </div>
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Adicionar</button>
+                            <button mat-raised-button type="submit" (click)="atualizar ? atualizarContato(formulario) : criarContato(formulario)"class="btn btn-danger pull-right">Adicionar</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -196,6 +196,8 @@
                                         <td class="td-actions text-right">
                                             <button mat-raised-button type="button" matTooltip="Editar"
                                                 [matTooltipPosition]="'above'"
+                                                [routerLink]="['/editcontatos', contato.id]"
+                                                (click)="atualizarContato(contato.id)"
                                                 class="btn btn-primary btn-link btn-sm btn-just-icon">
                                                 <i class="material-icons">edit</i>
                                             </button>

@@ -29,7 +29,7 @@ export class EmpresasService {
 
   }
   atualizarEmpresa(id: any, update: any): Observable<any> {
-    return this.http.put(`${this.URL_SERVIDOR}`, update);
+    return this.http.put(`${this.URL_SERVIDOR}/${id}`, update);
   }
   pegarEmpresa(id: any) {
     return this.http.get(`${this.URL_SERVIDOR}/${id}`);

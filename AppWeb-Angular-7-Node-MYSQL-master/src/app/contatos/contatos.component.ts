@@ -56,6 +56,7 @@ export class ContatosComponent implements OnInit {
 
     });
     formulario.reset();
+    this.router.navigate(['/contatos']);
 
   }
 

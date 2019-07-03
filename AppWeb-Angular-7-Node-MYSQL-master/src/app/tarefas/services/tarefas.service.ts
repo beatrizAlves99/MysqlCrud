@@ -24,7 +24,7 @@ export class TarefasService {
     return this.http.delete(this.URL_SERVIDOR + '/' + id);
   }
   atualizarTarefa(id: any, update: any): Observable<any> {
-    return this.http.put(`${this.URL_SERVIDOR}`, update);
+    return this.http.put(`${this.URL_SERVIDOR}/${id}`, update);
   }
   pegarTarefa(id: any) {
     return this.http.get(`${this.URL_SERVIDOR}/${id}`);

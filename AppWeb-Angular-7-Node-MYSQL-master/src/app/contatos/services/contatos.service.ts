@@ -28,7 +28,7 @@ export class ContatosService {
 
   }
   atualizarContato(id: any, update: any): Observable<any> {
-    return this.http.put(`${this.URL_SERVIDOR}`, update);
+    return this.http.put(`${this.URL_SERVIDOR}/${id}`, update);
   }
   pegarContato(id: any) {
     return this.http.get(`${this.URL_SERVIDOR}/${id}`);
