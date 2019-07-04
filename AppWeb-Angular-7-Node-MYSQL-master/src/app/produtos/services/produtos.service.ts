@@ -27,7 +27,7 @@ export class ProdutosService {
     return this.http.delete(this.URL_SERVIDOR + '/' + id);
   }
   atualizarProduto(id: any, update: any): Observable<any> {
-    return this.http.put(`${this.URL_SERVIDOR}`, update);
+    return this.http.put(`${this.URL_SERVIDOR}/${id}`, update);
   }
   pegarProduto(id: any) {
     return this.http.get(`${this.URL_SERVIDOR}/${id}`);

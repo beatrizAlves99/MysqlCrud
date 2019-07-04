@@ -53,6 +53,8 @@ export class ContatosComponent implements OnInit {
   atualizarContato(formulario: FormGroup) {
     this.contato_service.atualizarContato(this.contato.id, this.contato).subscribe(resposta => {
       console.log(resposta);
+      console.log('cheguei aqui');
+
 
     });
     formulario.reset();

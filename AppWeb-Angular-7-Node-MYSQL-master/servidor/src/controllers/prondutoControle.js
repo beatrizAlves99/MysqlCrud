@@ -24,9 +24,9 @@ exports.buscarProduto = (req,res,next)=>{
     let id = (req.params.id);
     Produto.findByPk(id).then((produto)=>{
         if (produto){
-            res.status(Status.OK).send(produto);
+            res.status(status.OK).send(produto);
         }else{
-            res.status(Status.NOT_FOUND).send();     
+            res.status(status.NOT_FOUND).send();     
         }
     }).catch((erro)=>{
         next(erro);

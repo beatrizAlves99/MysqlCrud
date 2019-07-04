@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TarefasService {
- 
+
   private tarefas: Tarefa[];
   URL_SERVIDOR = 'http://localhost:3000/tarefas';
 

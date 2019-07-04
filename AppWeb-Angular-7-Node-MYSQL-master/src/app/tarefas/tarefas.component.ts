@@ -49,6 +49,7 @@ export class TarefasComponent implements OnInit {
   }
   atualizarTarefa(formulario: FormGroup) {
     this.tarefa_service.atualizarTarefa(this.tarefa.id, this.tarefa).subscribe(resposta => {
+      console.log('cheguei aqui');
 
     });
     formulario.reset();

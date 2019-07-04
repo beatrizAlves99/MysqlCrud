@@ -141,9 +141,7 @@
                                     <th>
                                         Cód. Barras
                                     </th>
-                                    <th>
-                                        NCM
-                                    </th>
+                                   
                                     <th>
                                         Unidade
                                     </th>
@@ -180,9 +178,6 @@
                                         <td>
                                             {{venda.id}}
                                         </td><td>
-                                            {{venda.data}}
-                                        </td>
-                                        <td>
                                             {{venda.cliente}}
                                         </td>
                                         <td>
@@ -204,16 +199,16 @@
                                             {{venda.quantidade}}
                                         </td>
                                         <td>
-                                            {{venda.vr_unitario}}                                        
+                                            {{venda.vr_unitario}}
                                         </td>
                                         <td>
-                                            {{venda.sub_total}}
+                                            {{venda.sub_total}}                                        
                                         </td>
                                         <td>
-                                            {{venda.desconto_porcento}}                                        
+                                            {{venda.desconto_porcento}}
                                         </td>
                                         <td>
-                                            {{venda.desconto_reais}}
+                                            {{venda.desconto_reais}}                                        
                                         </td>
                                         <td>
                                             {{venda.total}}
@@ -221,6 +216,7 @@
                                         <td>
                                             {{venda.observacao}}
                                         </td>
+                                        
                                         <td class="td-actions text-right">
                                             <button mat-raised-button type="button" matTooltip="Editar"
                                                 [matTooltipPosition]="'above'"

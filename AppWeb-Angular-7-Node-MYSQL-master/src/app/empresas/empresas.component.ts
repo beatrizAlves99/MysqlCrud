@@ -55,6 +55,8 @@ export class EmpresasComponent implements OnInit {
   atualizarEmpresa(formulario: FormGroup) {
     this.empresa_service.atualizarEmpresa(this.empresa.id, this.empresa).subscribe(resposta => {
       console.log(resposta);
+      console.log('cheguei aqui');
+
 
     });
     formulario.reset();

@@ -54,6 +54,8 @@ export class ProdutosComponent implements OnInit {
   atualizarProduto(formulario: FormGroup) {
     this.produto_service.atualizarProduto(this.produto.id, this.produto).subscribe(resposta => {
       console.log(resposta);
+      console.log('cheguei aqui');
+
 
     });
     formulario.reset();

@@ -26,9 +26,9 @@ exports.buscarUmContato = (req,res,next)=>{
     let id = req.params.id;
     Contato.findByPk(id).then((contato)=>{
         if (contato){
-            res.status(Status.OK).send(contato);
+            res.status(status.OK).send(contato);
         }else{
-            res.status(Status.NOT_FOUND).send();     
+            res.status(status.NOT_FOUND).send();     
         }
     }).catch((erro)=>{
         next(erro);

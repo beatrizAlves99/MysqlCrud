@@ -21,17 +21,20 @@ exports.listarTarefa = (req,res,next)=>{
 
 
 exports.buscarUmTarefa = (req,res,next)=>{
-    let id = (req.params.id);
-    Tarefa.findByPk(id).then((tarefa)=>{
+    //let id = req.params.id;
+    Tarefa.findByPk(req.params.id).then((tarefa)=>{
         if (tarefa){
-            res.status(Status.OK).send(tarefa);
+            res.status(status.OK).send(tarefa);
         }else{
-            res.status(Status.NOT_FOUND).send();     
+            res.status(status.NOT_FOUND).send();     
         }
     }).catch((erro)=>{
         next(erro);
+        console.log("Ocorreu um erro");
     });
 };
+
+
 
 exports.excluirTarefa = (req,res,next) => {
     let id = (req.params.id);
